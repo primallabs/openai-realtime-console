@@ -1,5 +1,5 @@
 import { openai } from "../../../../../openai";
-import { RequestParams, RequestBody } from "../../../../../types/Request";
+import { RequestParams, RequestBody } from "../../../../../types/request";
 
 export async function POST(request: Request, { params: { threadId } }: RequestParams): Promise<Response> {
   if (!threadId) {
