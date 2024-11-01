@@ -27,6 +27,10 @@ import { Map } from '../components/Map';
 import './ConsolePage.scss';
 import { isJsxOpeningLikeElement } from 'typescript';
 
+import { 
+  ToolSchema as get_RevenueForecast,
+  ToolFunction as get_RevenueForecastHandler 
+} from "../tools/get_RevenueForecast";
 /**
  * Type for result from get_weather() function call
  */
@@ -53,6 +57,8 @@ interface RealtimeEvent {
   count?: number;
   event: { [key: string]: any };
 }
+
+
 
 export function ConsolePage() {
   /**
@@ -411,6 +417,10 @@ export function ConsolePage() {
         return { ok: true };
       }
     );
+    client.addTool(
+      get_RevenueForecast,
+      get_RevenueForecastHandler
+    ),
     client.addTool(
       {
         name: 'get_weather',
